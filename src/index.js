@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // https://ko.reactjs.org/tutorial/tutorial.html#lifting-state-up
+
 class Square extends React.Component {
   
   render() {
@@ -22,6 +23,12 @@ class Board extends React.Component {
     this.state = {
       squares: Array(9).fill(null),
     };
+  }
+
+  handleClick(i) {
+    const squares = this.state.squares.slice();
+    squares[i] = 'X';
+    this.setState({squares: squares});
   }
 
   renderSquare(i) {
